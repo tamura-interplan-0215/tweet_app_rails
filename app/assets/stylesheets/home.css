@@ -100,6 +100,14 @@ header {
   color: white;
 }
 
+.header-menus button{
+  font-size: 13px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .header-menus .fa {
   padding-right: 5px;
 }
