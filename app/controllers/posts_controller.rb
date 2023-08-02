@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
+    @likes_count = Like.where(post_id: @post.id).count
   end
   def new
     @post = Post.new
@@ -49,7 +50,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     if @post.user_id != @current_user.id
       flash[:notice] = "権限がありません"
-      redirect_to("/posts/index")
+      redirect_to("/posts/index", status: :see_other)
     end
   end
 
